@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="ar.com.atletismo.dominio.Escuela" table="Escuela">
+        
+        <id name="id" column="id_escuela">
+            <generator class="increment"/>
+        </id>
+        
+        <property name="nombre" column="nombre" type="string" />
+        
+  </class>
+</hibernate-mapping>

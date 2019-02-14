@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="ar.com.atletismo.dominio.Competencia" table="Competencia">
+        
+        <id name="id" column="id_competencia">
+            <generator class="increment"/>
+        </id>
+        
+        <property name="descripcion" column="descripcion" type="string" />
+        <property name="fecha" column="fecha" type="timestamp" />
+
+        <set name="categorias" table="CompetenciaCategoria" lazy="false">
+            <key>
+                <column name="id_competencia" not-null="true" />
+            </key>
+            <many-to-many entity-name="ar.com.atletismo.dominio.Categoria">
+                <column name="id_categoria" not-null="true" />
+            </many-to-many>
+        </set>
+        
+  </class>
+</hibernate-mapping>

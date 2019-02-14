@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="ar.com.atletismo.dominio.Aspirante" table="Aspirante">
+        
+        <id name="numeroDeDocumento" column="numero_de_documento" type="integer" />
+        
+        <property name="apellido" column="apellido" type="string" />
+        <property name="nombre" column="nombre" type="string" />
+        <property name="direccion" column="direccion" type="string" />
+        <property name="fechaDeNacimiento" column="fecha_de_nacimiento"  />
+        <property name="sexo" column="sexo" type="string" />
+        
+        <many-to-one name="escuela" class="ar.com.atletismo.dominio.Escuela" column="id_escuela" not-null="true"/>
+
+        <set name="inscripciones" inverse="true" cascade="save-update" lazy="true">
+            <key column="id_aspirante" not-null="true" />
+            <one-to-many class="ar.com.atletismo.dominio.Inscripcion"/>
+        </set>
+        
+  </class>
+</hibernate-mapping>
